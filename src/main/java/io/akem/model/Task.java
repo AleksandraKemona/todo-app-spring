@@ -1,23 +1,25 @@
 package io.akem.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name="tasks")
+@NoArgsConstructor
 public class Task {
 
     @Id
     @Getter
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
 
     @Getter
     @Setter
     @Column(name = "desc")
+    @NotBlank(message = "Task's description must not be empty")
     private String description;
 
     @Getter
