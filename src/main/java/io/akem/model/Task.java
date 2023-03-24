@@ -13,6 +13,7 @@ public class Task {
 
     @Id
     @Getter
+    @Setter
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
 
